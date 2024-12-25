@@ -1,6 +1,7 @@
 Script Rayfield Check Staff : 
 
-```local staffRoles = {"mod", "admin", "staff", "dev", "founder", "owner", "manager", "director"}
+```
+local staffRoles = {"mod", "admin", "staff", "dev", "founder", "owner", "manager", "director"}
 local groupId = game.CreatorId
 
 
