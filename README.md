@@ -1,69 +1,33 @@
-Script Rayfield Check Staff : 
+# 🚀 Scripts Roblox - Site-43 & Plus 🚀
 
-```
-local staffRoles = {"mod", "admin", "staff", "dev", "founder", "owner", "manager", "director"}
-local groupId = game.CreatorId
+Bienvenue sur mon dépôt GitHub ! Ici, vous trouverez une collection de **scripts personnalisés pour Roblox** que j'ai développés, principalement pour le projet **Site-43** et d'autres expériences passionnantes.
 
+## 📜 À propos
+Je crée des scripts en **Luau**
 
---// Détection de staff \\--
+---
 
-local function checkForStaff()
-    local foundStaff = {}
+**Projet principal : [Site-43](https://discord.gg/neptunescripts)**  
+**Description :** Site-43 est une expérience immersive dans le style SCP avec des fonctionnalités uniques, telles que :
+- Simulation de laboratoire hautement détaillée.
+- Système de rôles dynamiques (scientifique, garde, D-class, etc.).
+- Mécaniques avancées pour l'exploration et l'interaction.
 
-    for _, player in pairs(game.Players:GetPlayers()) do
-        local role = player:GetRoleInGroup(groupId):lower()
-        for _, staffKeyword in ipairs(staffRoles) do
-            if string.find(role, staffKeyword) then
-                table.insert(foundStaff, player.Name .. " (" .. role .. ")")
-                break
-            end
-        end
-    end
+---
 
-    
+## ❓ FAQ
+**Est-ce que ces scripts sont gratuits ?**  
+Oui, tous les scripts disponibles ici sont gratuits et open source sous licence [MIT](https://opensource.org/licenses/MIT).
 
---// La Notification \\--
-    if #foundStaff > 0 then
-        Rayfield:Notify({
-            Title = "Staff détecté",
-            Content = table.concat(foundStaff, "\n"),
-            Duration = 5,
-            Image = 4483362458, 
-        })
-    else
-        Rayfield:Notify({
-            Title = "Aucun staff trouvé",
-            Content = "Aucun staff détecté.",
-            Duration = 5,
-        })
-    end
-end
+**Puis-je modifier les scripts ?**  
+Bien sûr, ils sont conçus pour être facilement personnalisables. Merci de créditer ce dépôt si vous les utilisez.
 
+## 🧩 Liens utiles
+- [Serveur discord](https://create.roblox.com/)
+- [Documentation Luau](https://luau-lang.org/)
 
-utilTab:CreateButton({
-    Name = "Vérifier les staff",
-    Callback = function()
-        checkForStaff()
-    end,
-})
+---
 
+### 📬 Contact
+Si vous avez des questions ou souhaitez discuter, contactez-moi via [mon profil GitHub](https://github.com/1998e) ou rejoignez notre serveur Discord.
 
---// Systeme quand une personne join \\--
-
-game.Players.PlayerAdded:Connect(function(player)
-player.CharacterAdded:Wait()
-
-    local role = player:GetRoleInGroup(groupId):lower()
-    for _, staffKeyword in ipairs(staffRoles) do
-        if string.find(role, staffKeyword) then
-        
-            Rayfield:Notify({
-                Title = "Staff rejoint",
-                Content = player.Name .. " a rejoint avec le rôle : " .. role,
-                Duration = 5,
-                Image = 4483362458, 
-            })
-            break
-        end
-    end
-end)```
