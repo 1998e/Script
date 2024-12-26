@@ -52,9 +52,8 @@ local function teleportPlayersInCircle()
     if not rootPart then return end
 
     local startPosition = rootPart.Position
-    local radius = 3 -- Radius of the circle
-    local angleStep = math.rad(360 / (#Players:GetPlayers() - 1)) -- Angle between each player
-
+    local radius = 3 
+    local angleStep = math.rad(360 / (#Players:GetPlayers() - 1)) 
     local currentAngle = 0
 
     for i, player in ipairs(Players:GetPlayers()) do
